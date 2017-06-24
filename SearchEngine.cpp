@@ -67,3 +67,35 @@ void SearchEngine::setInputSearch(string input) {
 bool SearchEngine::isFound() {
 	return found;
 }
+
+void SearchEngine::searchRowTop(int startIdx) {
+
+}
+
+void SearchEngine::searchRowDown(int startIdx) {
+
+}
+
+void SearchEngine::searchColTop(int startIdx) {
+
+}
+
+void SearchEngine::searchColDown(int startIdx) {
+
+}
+
+void SearchEngine::searchDiagonalRTop(int startIdxRow, int startIdxCol) {
+
+}
+
+void SearchEngine::searchDiagonalRDown(int startIdxRow, int startIdxCol) {
+
+}
+
+void SearchEngine::searchDiagonalLTop(int startIdxRow, int startIdxCol) {
+
+}
+
+void SearchEngine::searchDiagonalLDown(int startIdxRow, int startIdxCol) {
+
+}

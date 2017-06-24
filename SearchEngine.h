@@ -20,7 +20,14 @@ class SearchEngine : public Matriks{
 		bool isFound();
 
 		//method
-
+		void searchRowTop(int);
+		void searchRowDown(int);
+		void searchColTop(int);
+		void searchColDown(int);
+		void searchDiagonalRTop(int, int);
+		void searchDiagonalRDown(int, int);
+		void searchDiagonalLTop(int, int);
+		void searchDiagonalLDown(int, int);
 
 	private:
 		string inputSearch;
