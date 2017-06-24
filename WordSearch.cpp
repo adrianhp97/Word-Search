@@ -2,12 +2,14 @@
 #include <thread>
 #include "Matriks.h"
 #include "Parser.h"
+#include "SearchEngine.h"
 
 using namespace std;
 
 int main() {
 	Parser matriksParser;
-	Matriks wordMatriks(matriksParser.getMatriks());
-	wordMatriks.printMatriks();
+	SearchEngine x(matriksParser);
 	return 0;
 }
+
+//g++ WordSearch.cpp Matriks.cpp SearchEngine.cpp Parser.cpp -o a -std=c++11

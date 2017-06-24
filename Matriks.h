@@ -7,18 +7,23 @@ using namespace std;
 
 class Matriks {
 	public:
+		//ctor, cctor, dtor, operator=
 		Matriks();
 		Matriks(int);
 		Matriks(const Matriks&);
 		~Matriks();
 		Matriks& operator=(const Matriks&);
-		void printMatriks();
+
+		//getter, setter
 		int getNbElmnt();
 		char getDataAt(int, int);
 		void setNbElmnt(int);
 		void setDataAt(int, int, int);
 
-	private:
+		//method
+		void printMatriks();
+
+	protected:
 		char** dataMatriks;
 		int nbElmnt;
 };

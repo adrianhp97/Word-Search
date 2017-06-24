@@ -1,25 +1,29 @@
 #include "Parser.h"
 
-Parser::Parser() {
-	file.open("data.txt");
+Parser::Parser() : Matriks() {
+	try{
+		file.open("data.txt");
+		
+		string dummyElmnnt;
+		file >> dummyElmnnt;
 
-	string dummyElmnnt;
-	file >> dummyElmnnt;
-	Matriks dummyMatriks(dummyElmnnt.length());
-	data = dummyMatriks;
-
-	file.seekg(0, ios::beg);
-	for (int idxRow = 0; idxRow < data.getNbElmnt(); idxRow++) {
-		string line;
-		file >> line;
-		for (int idxCol = 0; idxCol < data.getNbElmnt(); idxCol++) {
-			data.setDataAt(idxRow, idxCol, line[idxCol]);
+		dataMatriks = new char*[dummyElmnnt.length()];
+		for (int idx = 0; idx < dummyElmnnt.length(); idx++) {
+			dataMatriks[idx] = new char[dummyElmnnt.length()];
 		}
+		nbElmnt = dummyElmnnt.length();
+		
+		file.seekg(0, ios::beg);
+		for (int idxRow = 0; idxRow < nbElmnt; idxRow++) {
+			string line;
+			file >> line;
+			for (int idxCol = 0; idxCol < nbElmnt; idxCol++) {
+				dataMatriks[idxRow][idxCol] =  line[idxCol];
+			}
+		}
+
+		file.close();
+	} catch(int e) {
+
 	}
-
-	file.close();
-}
-
-Matriks Parser::getMatriks() {
-	return data;
 }

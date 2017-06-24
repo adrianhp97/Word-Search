@@ -6,13 +6,11 @@ using namespace std;
 #ifndef PARSER_H
 #define PARSER_H
 
-class Parser {
+class Parser : public Matriks{
 	public:
 		Parser();
-		Matriks getMatriks();
 
 	private:
-		Matriks data;
 		ifstream file;
 };
 
