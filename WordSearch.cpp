@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
 	Parser matriksParser;
-	SearchEngine x(matriksParser);
+	SearchEngine engine(matriksParser, "cb");
 	return 0;
 }
 

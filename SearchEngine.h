@@ -28,6 +28,7 @@ class SearchEngine : public Matriks{
 		void searchDiagonalRDown(int, int);
 		void searchDiagonalLTop(int, int);
 		void searchDiagonalLDown(int, int);
+		int* computeFail(string);
 
 	private:
 		string inputSearch;
