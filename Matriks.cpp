@@ -54,8 +54,26 @@ Matriks& Matriks::operator=(const Matriks& matriksDifferent) {
 
 void Matriks::printMatriks() {
 	for (int idxRow = 0; idxRow < nbElmnt; idxRow++) {
+		if (idxRow == 0) {
+			for(int idx = 0; idx < nbElmnt + 2; idx++) {
+				cout << "-";
+			}
+			cout << endl;
+		}
 		for (int idxCol = 0; idxCol < nbElmnt; idxCol++) {
+			if (idxCol == 0) {
+				cout << "|";
+			}
 			cout << dataMatriks[idxRow][idxCol];
+			if (idxCol == nbElmnt - 1) {
+				cout << "|";
+			}
+		}
+		if (idxRow == nbElmnt - 1) {
+			cout << endl;
+			for(int idx = 0; idx < nbElmnt + 2; idx++) {
+				cout << "-";
+			}
 		}
 		cout << endl;
 	}

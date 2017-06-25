@@ -8,40 +8,52 @@
 
 using namespace std;
 
-void forkProgram(SearchEngine thisMatriks, int numberProcess, int numberThread);
+int nProcess;
+int nThread;
+
+void forkProgram(SearchEngine thisMatriks, int numberProcess);
 
 int main() {
 	Parser matriksParser;
-	SearchEngine engine(matriksParser, "cb");	
-	int n;
-	cin >> n;
-	forkProgram(engine, n, 5);
+	string inputWord;
+
+	cout << "Matrix of Word" << endl;
+	matriksParser.printMatriks();
+	cout << "Number of process: ";
+	cin >> nProcess;
+	cout << "Number of thread: ";
+	cin >> nThread;
+	cout << "Find word: ";
+	cin >> inputWord;
+	
+	SearchEngine engine(matriksParser, inputWord);
+
+	forkProgram(engine, nProcess);
 	return 0;
 }
 
-void forkProgram(SearchEngine thisMatriks, int numberProcess, int numberThread) {
+void forkProgram(SearchEngine thisMatriks, int numberProcess) {
 	pid_t pid;
 	if (numberProcess <= 1) {
-		//fungsi
-		cout << "process" << endl;
+		
 	} else {
 		pid = fork();
 		if (numberProcess%2 == 0) {
 			if (pid >= 0) {
-				forkProgram(thisMatriks, numberProcess/2, numberThread);
+				forkProgram(thisMatriks, numberProcess/2);
 			}
 			else {
-				cout << "Failed" << endl;
+				cout << "Failed to fork" << endl;
 			}
 		} else {
 			if (pid == 0) {
-				forkProgram(thisMatriks, numberProcess/2, numberThread);
+				forkProgram(thisMatriks, numberProcess/2);
 			}
 			else if (pid > 0) {
-				forkProgram(thisMatriks, numberProcess/2 + 1, numberThread);
+				forkProgram(thisMatriks, numberProcess/2 + 1);
 			}
 			else {
-				cout << "Failed" << endl;
+				cout << "Failed to fork" << endl;
 			}
 		}
 	}
