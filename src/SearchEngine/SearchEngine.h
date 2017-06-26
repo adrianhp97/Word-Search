@@ -1,4 +1,4 @@
-#include "Matriks.h"
+#include "../Matriks.h"
 
 #ifndef SEARCHENGINE_H
 #define SEARCHENGINE_H
@@ -18,6 +18,10 @@ class SearchEngine : public Matriks{
 		string getInputSearch();
 		void setInputSearch(string);
 		bool isFound();
+		int getThreadNum();
+		void setThreadNum(int);
+		int getProcessNum();
+		void setProcessNum(int);
 
 		//method
 		void searchRowTop(int);
@@ -33,6 +37,8 @@ class SearchEngine : public Matriks{
 	private:
 		string inputSearch;
 		bool found;
+		int threadNum;
+		int processNum;
 };
 
 #endif

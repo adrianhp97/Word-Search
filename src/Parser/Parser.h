@@ -1,5 +1,5 @@
 #include <fstream>
-#include "Matriks.h"
+#include "../Matriks.h"
 
 using namespace std;
 

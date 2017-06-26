@@ -8,26 +8,36 @@ SearchEngine::SearchEngine() : Matriks() {
 	}
 	found = false;
 	inputSearch = "";
+	threadNum = 0;
+	processNum = 0;
 }
 
 SearchEngine::SearchEngine(int rowColumn) : Matriks(rowColumn) {
 	found = false;
 	inputSearch = "";
+	threadNum = 0;
+	processNum = 0;
 }
 
 SearchEngine::SearchEngine(Matriks dataParser) : Matriks(dataParser){
 	found = false;
 	inputSearch = "";
+	threadNum = 0;
+	processNum = 0;
 }
 
 SearchEngine::SearchEngine(Matriks dataParser, string input) : Matriks(dataParser){
 	inputSearch = input;
 	found = false;
+	threadNum = 0;
+	processNum = 0;
 }
 
 SearchEngine::SearchEngine(const SearchEngine& searchSource) : Matriks(searchSource) {
 	inputSearch = searchSource.inputSearch;
 	found = false;
+	threadNum = searchSource.threadNum;
+	processNum = searchSource.processNum;
 }
 
 SearchEngine::~SearchEngine() {
@@ -53,6 +63,10 @@ SearchEngine& SearchEngine::operator=(const SearchEngine& searchSource) {
 
 	inputSearch = searchSource.inputSearch;
 
+	threadNum = searchSource.threadNum;
+
+	processNum = searchSource.processNum;
+
 	return *this;
 }
 
@@ -67,6 +81,23 @@ void SearchEngine::setInputSearch(string input) {
 bool SearchEngine::isFound() {
 	return found;
 }
+
+int SearchEngine::getThreadNum() {
+	return threadNum;
+}
+
+void SearchEngine::setThreadNum(int num) {
+	threadNum = num;
+}
+
+int SearchEngine::getProcessNum() {
+	return processNum;
+}
+
+void SearchEngine::setProcessNum(int num) {
+	processNum = num;
+}
+
 
 void SearchEngine::searchRowTop(int startIdx) {
 	int* fail = computeFail(inputSearch);
@@ -224,3 +255,4 @@ int* SearchEngine::computeFail(string pattern) {
 	}
 	return fail;
 }
+
